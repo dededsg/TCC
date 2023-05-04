@@ -67,7 +67,7 @@
 
                             <div class="row" style="margin-top: 20px;">
                                     <div class="col-sm-12 mx-auto">
-                                        <input class="col-sm-12 inputSubmit btn btn-primary" type="submit" name="submit" value="Cadastrar" style="margin-top: 50px; border-radius: 30px;">
+                                        <input class="col-sm-12 inputSubmit btn btn-primary" type="submit" name="submit" value="Entrar" style="margin-top: 50px; border-radius: 30px;">
                                     </div>
                                 </div>
                           </div>

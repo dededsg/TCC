@@ -68,13 +68,13 @@
       </nav>
     </div>
     <div class="container">       
-        <main class="cadastro" style="margin-left: 30%;">
-            <h1 class="titulo-index">
-            Faça seu Pedido
-            </h1>
+        <main style="margin-left: 30%;">
                 <div style="margin-top: 50px;">
                     <form action="inputPostagem.php" method="POST">
-                        <div class="container" style="padding-left: 105px; padding-right: 105px;">
+                        <div class="cadastro" style="padding-left: 105px; padding-right: 105px;">
+                        <h1 class="titulo-index">
+                        Faça seu Pedido
+                    </h1>
                           <div class="card-content">
 
                             <div class="card-content-area">
@@ -93,10 +93,10 @@
                             </div>
 
                             <div class="row" style="margin-top: 20px;">
-                                    <div class="col-sm-12 mx-auto">
-                                        <input class="col-sm-12 inputSubmit btn btn-primary" type="submit" name="submit" value="Enviar" style=" margin-top: 50px; border-radius: 30px;">
-                                    </div>
+                                <div class="col-sm-12 mx-auto">
+                                    <input class="col-sm-12 inputSubmit btn btn-primary" type="submit" name="submit" value="Enviar" style=" margin-top: 50px; border-radius: 30px;">
                                 </div>
+                            </div>
                           </div>
                         </div>
                     </form> 

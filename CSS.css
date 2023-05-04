@@ -47,15 +47,16 @@ footer{
 }
 
 .cadastro{
-    margin-bottom: 200px;
     background-color: #E2EFFF;
     width: 700px;
-    height: 700px;
     border-bottom: 200px;
-    padding-bottom: 200px;
+    padding-bottom: 100px;
+    padding-top: 50px;
     margin-top: 100px;
     margin-bottom: 100px;
+    border-radius: 10px;
 }
+
 
 .login{
     margin-bottom: 200px;

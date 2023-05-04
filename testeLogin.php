@@ -46,8 +46,11 @@
     }
     else
     {
-        //não acessa    
-        header('location: login.php');
+        //não acessa   
+        echo '<script type="text/javascript">'; 
+        echo 'alert("Informe todos os campos!");'; 
+        echo 'window.location.href = "login.php";';
+        echo '</script>'; 
     }
 
 ?>
