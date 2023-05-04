@@ -73,7 +73,7 @@
             Faça seu Pedido
             </h1>
                 <div style="margin-top: 50px;">
-                    <form action=" # " method="POST">
+                    <form action="inputPostagem.php" method="POST">
                         <div class="container" style="padding-left: 105px; padding-right: 105px;">
                           <div class="card-content">
 
