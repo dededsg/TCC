@@ -12,7 +12,6 @@ nav.navbar{
 
 main{
     margin-right: 2rem; 
-    border-radius: 10px; 
     padding: 20px; 
     border: 20px;
     margin: 20px; 
@@ -27,6 +26,7 @@ main{
     font-weight: bold; 
     color: #0061E0; 
     padding-top: 20px;
+    padding-bottom: 50px;
 }
 
 footer{
@@ -48,13 +48,13 @@ footer{
 
 .cadastro{
     background-color: #E2EFFF;
-    width: 700px;
+    width: 650px;
     border-bottom: 200px;
     padding-bottom: 100px;
     padding-top: 50px;
-    margin-top: 100px;
+    margin-top:50px;
     margin-bottom: 100px;
-    border-radius: 10px;
+    border-radius: 20px;
 }
 
 

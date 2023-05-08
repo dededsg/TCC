@@ -48,7 +48,7 @@
     </div>
 
 <!------------------------------------------------------------------------------------------------------------->
-        <main class="cadastro" style="margin-left: 32%;">
+        <main class="cadastro" style="margin-left: 32%; margin-bottom: 200px;">
             <h1 class="titulo-index">
             Cadastro
             </h1>

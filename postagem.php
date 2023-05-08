@@ -69,7 +69,7 @@
     </div>
     <div class="container">       
         <main style="margin-left: 30%;">
-                <div style="margin-top: 50px;">
+                <div style="margin-top: 20px;">
                     <form action="inputPostagem.php" method="POST">
                         <div class="cadastro" style="padding-left: 105px; padding-right: 105px;">
                         <h1 class="titulo-index">

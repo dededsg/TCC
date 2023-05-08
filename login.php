@@ -48,15 +48,13 @@
     </div>
 
         <main class="login" style="margin-left: 32%;">
-            <h1 class="titulo-index">
-            Login
-            </h1>
-
                 <div style="margin-top: 50px;">
                     <form action="testeLogin.php" method="POST">
                         <div class="container" style="padding-left: 105px; padding-right: 105px;">
                           <div class="card-content">
-
+                            <h1 class="titulo-index">
+                              Login
+                            </h1>
                             <div class="card-content-area">
                                 <input type="text" name="email" placeholder="Email">
                             </div>
