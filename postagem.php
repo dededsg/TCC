@@ -70,7 +70,7 @@
     <div class="container">       
         <main style="margin-left: 30%;">
                 <div style="margin-top: 20px;">
-                    <form action="inputPostagem.php" method="POST">
+                    <form action="inputPostagem.php" method="POST" enctype="multipart/form-data">
                         <div class="cadastro" style="padding-left: 105px; padding-right: 105px;">
                         <h1 class="titulo-index">
                         Faça seu Pedido
@@ -78,11 +78,11 @@
                           <div class="card-content">
 
                             <div class="card-content-area">
-                                <input type="text" name="email" placeholder="Qual a matéria?">
+                                <input type="text" name="materia" placeholder="Qual a matéria?">
                             </div>
 
                             <div class="card-content-textarea">
-                                <textarea placeholder="Descrição ..."></textarea>
+                                <textarea type="text" name="desc" placeholder="Descrição ..."></textarea>
                             </div>
 
                             <div class='input-wrapper'>
