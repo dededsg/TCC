@@ -1,11 +1,32 @@
 <?php
+    session_start();
+    //print_r($_SESSION);
+    if((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true))
+    {
+        unset($_SESSION['email']);
+        unset($_SESSION['senha']);
+        header('location: login.php');
+    }
+    $logado = $_SESSION['email'];
+
+    include_once('conexao.php');    
+
+    $sql = "SELECT * FROM cadastro WHERE email = '$logado'";
+
+    $resultado = mysqli_query($conn, $sql) or die("Erro ao retornar dados");
+    
+    $registro = mysqli_fetch_array($resultado)
+
+?>
+<?php
+
 include_once('conexao.php');
 
 if(isset($_POST['submit']) && !empty($_POST['materia'])){
     if(isset($_POST['submit']) && !empty($_POST['desc'])){
         if(isset($_POST['submit']) && isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK){
 
-            $formatosPermitidos = array("pdf", "jpg", "png");
+            $formatosPermitidos = array("pdf");
 
             $extensao = pathinfo($_FILES['arquivo']['name'],PATHINFO_EXTENSION);
         
@@ -25,7 +46,8 @@ if(isset($_POST['submit']) && !empty($_POST['materia'])){
                 mysqli_query($conn, $sql);
                 if(mysqli_affected_rows($conn) > 0) {
                     echo '<script type="text/javascript">'; 
-                    echo 'alert("Cadastro concluido com sucesso!");'; 
+                    echo 'alert("Postagem feita com secesso :)");'; 
+                    echo 'window.location.href = "postagem.php";';
                     echo '</script>';
         
                 }else{
@@ -33,23 +55,40 @@ if(isset($_POST['submit']) && !empty($_POST['materia'])){
                 }
 
                 if(move_uploaded_file($temporario, $pasta. $novoNome)){
-                    echo $mensagem = "Upload feito com sucesso!";
-                    echo $nomearquivo1;
+                    echo '<script type="text/javascript">'; 
+                    echo 'alert("Upload feito com secesso :)");'; 
+                    echo 'window.location.href = "postagem.php";';
+                    echo '</script>';
                     
                 }else{
-                    echo $mensagem = "Erro, não foi possivel fazer o upload";
+                    echo '<script type="text/javascript">'; 
+                    echo 'alert("Não foi possivel fazer o upload!!");'; 
+                    echo 'window.location.href = "postagem.php";';
+                    echo '</script>';
                 }
             }else{  
-                echo "ERRO, formato de arquivo inválido!!!";
+                echo '<script type="text/javascript">'; 
+                echo 'alert("Formato de arquivo incompativél!!");'; 
+                echo 'window.location.href = "postagem.php";';
+                echo '</script>';
             }
         }else{
-            echo "ERRO, informe o campo de arquivo!!!";
+            echo '<script type="text/javascript">'; 
+            echo 'alert("Informe o campo de arquivo!!");'; 
+            echo 'window.location.href = "postagem.php";';
+            echo '</script>';
         }
     }else{
-        echo "ERRO, informe o campo de descrição!!!";
+        echo '<script type="text/javascript">'; 
+        echo 'alert("Informe o campo de descrição!!");'; 
+        echo 'window.location.href = "postagem.php";';
+        echo '</script>';
     }
 }else{
-    echo "ERRO, informe o campo de matéria!!!";
+    echo '<script type="text/javascript">'; 
+    echo 'alert("informe o campo de matéria!!");'; 
+    echo 'window.location.href = "postagem.php";';
+    echo '</script>';
 }
 ?> 
 <!DOCTYPE html>
