@@ -67,18 +67,33 @@
         </div>
       </nav>
     </div>
-    <div class="container">       
+    <div class="container" style="padding-right: 280px;">       
         <main style="margin-left: 30%;">
                 <div style="margin-top: 20px;">
                     <form action="inputPostagem.php" method="POST" enctype="multipart/form-data">
                         <div class="cadastro" style="padding-left: 105px; padding-right: 105px;">
                         <h1 class="titulo-index">
                         Faça seu Pedido
-                    </h1>
+                    </h1>   
+
                           <div class="card-content">
 
                             <div class="card-content-area">
-                                <input type="text" name="materia" placeholder="Qual a matéria?">
+                                <select name="materia">
+                                    <option value="Matéria não definida">Selecione a matéria</option>
+                                    <option value="Portugues">Portugues</option>
+                                    <option value="Matematica">Matematica</option>
+                                    <option value="Geografia">Geografia</option>
+                                    <option value="História">História</option>
+                                    <option value="Informatica">Informatica</option>
+                                    <option value="Sociologia">Sociologia</option>
+                                    <option value="Filosofia">Filosofia</option>
+                                    <option value="Educação fisica">Educação fisica</option>
+                                    <option value="Biologia">Biologia</option>
+                                    <option value="Fisica">Fisica</option>
+                                    <option value="Ingles">Ingles</option>
+                                    <option value="Artes">Artes</option>
+                                </select>
                             </div>
 
                             <div class="card-content-textarea">
@@ -93,8 +108,9 @@
                                 </div>
 
                             <div class="card-content-file">
-                                <label for="arquivo" style="width: 200px; padding: .375rem .75rem; background-color: #0d6efd; color: #FFF; text-align: center; display: block; margin-top: 30px; margin-bottom: 20px; cursor: pointer; border-radius: 30px; ">Arquivo</label>
+                                <label for="arquivo" style="width: 200px; padding: .375rem .75rem; background-color: #0d6efd; color: #FFF; text-align: center; display: inline; margin-top: 30px; margin-bottom: 20px; cursor: pointer; border-radius: 30px; ">Arquivo</label>
                                 <input type="file" name="arquivo" id="arquivo">
+                                <span id="nomearquivo"></span>
                             </div>
 
 
@@ -105,10 +121,15 @@
                                 </div>
                             </div>
                           </div>
-                        </div>
+                        
                     </form> 
                 </div>
             </main>
         </div>
     </body>
+    <script>
+        document.getElementById('arquivo').onchange = function () {
+        document.getElementById("nomearquivo").innerHTML = this.value; 
+};
+    </script>
 </html>

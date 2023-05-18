@@ -100,11 +100,34 @@ footer{
     border: 1px solid #0061E0;
     outline: none;
     color: #000000;
+    border-radius: 4px;
 }
-
-
-
-
-
-
-
+select {
+    appearance: none; /* Remove a seta padrão do navegador */
+    -webkit-appearance: none; /* Para navegadores baseados em WebKit, como o Chrome */
+    -moz-appearance: none; /* Para navegadores baseados em Gecko, como o Firefox */
+    background-image: url("caminho_para_a_imagem_da_seta.png"); /* Adicione uma imagem para a seta */
+    background-position: right center; /* Posicione a imagem da seta à direita */
+    background-repeat: no-repeat; /* Não repita a imagem */
+    padding-right: 20px; /* Adicione um espaço para a imagem da seta */
+  }
+  
+  /* Estilizando o fundo do <select> */
+  select {
+    background-color: #E2EFFF; /* Define a cor de fundo */
+    border: 1px solid #0D6EFD; /* Adicione uma borda */
+    border-radius: 4px; /* Arredonda as bordas */
+    padding: 6px; /* Adicione um espaçamento interno */
+  }
+  
+  /* Estilizando as opções do <select> */
+  select option {
+    background-color: #E2EFFF; /* Define a cor de fundo das opções */
+    color: #333; /* Define a cor do texto das opções */
+  }
+  
+  /* Estilizando o <select> quando estiver focado */
+  select:focus {
+    outline: none; /* Remove o contorno padrão ao focar */
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.3); /* Adicione uma sombra ao focar */
+  }
