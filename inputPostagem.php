@@ -5,6 +5,7 @@
     {
         unset($_SESSION['email']);
         unset($_SESSION['senha']);
+        unset($_SESSION['id']);
         header('location: login.php');
     }
     $logado = $_SESSION['email'];
@@ -15,12 +16,15 @@
 
     $resultado = mysqli_query($conn, $sql) or die("Erro ao retornar dados");
     
-    $registro = mysqli_fetch_array($resultado)
+    $registro = mysqli_fetch_array($resultado);
 
-?>
-<?php
 
-include_once('conexao.php');
+
+echo "abacate";
+$id_cadastro = $_SESSION['id'];
+echo $id_cadastro;
+
+
 
 if(isset($_POST['submit']) && !empty($_POST['materia'])){
     if(isset($_POST['submit']) && !empty($_POST['desc'])){
@@ -39,6 +43,7 @@ if(isset($_POST['submit']) && !empty($_POST['materia'])){
                     $materia = $_POST['materia'];
                     $descricao = $_POST['desc'];
                     $prazo = $_POST['prazo'];
+                   
 
                     $prazoF = date('d-m-Y', strtotime($prazo));
 
@@ -49,14 +54,14 @@ if(isset($_POST['submit']) && !empty($_POST['materia'])){
                     setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
                     $data = date('d-m-Y');
 
-
-                    $sql = "INSERT INTO postagem (nomearquivo, descricao, materia, prazo, datapost) VALUES ('$nomearquivo', '$descricao', '$materia', '$prazoF', '$data')";
+                    $sql = "INSERT INTO postagem (nomearquivo, descricao, materia, prazo, datapost, id_cadastro) 
+                                        VALUES ('$nomearquivo', '$descricao', '$materia', '$prazoF', '$data', '$id_cadastro')";
 
                     mysqli_query($conn, $sql);
                     if(mysqli_affected_rows($conn) > 0) {
                         echo '<script type="text/javascript">'; 
                         echo 'alert("Postagem feita com secesso :)");'; 
-                        echo 'window.location.href = "postagem.php";';
+                        echo 'window.location.href = "home.php";';
                         echo '</script>';
             
                     }else{

@@ -30,6 +30,16 @@
        }
        else
        {
+
+        $sql1="SELECT * FROM cadastro WHERE email = '$email'";
+        print_r($sql1);
+
+        $sql2 = "SELECT id FROM cadastro WHERE email = '$email'";
+        $result2 = $conn->query($sql2);
+        $row = $result2->fetch_assoc();
+        $_SESSION['id'] = $row['id'];
+
+       
         $_SESSION['email'] = $email;
         $_SESSION['senha'] = $senha;
         
