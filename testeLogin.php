@@ -32,6 +32,7 @@
        {
         $_SESSION['email'] = $email;
         $_SESSION['senha'] = $senha;
+        
 
         $email12 = $_SESSION['email'];
         $senha12 = $_SESSION['senha'];
