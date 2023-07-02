@@ -1,6 +1,6 @@
 <?php
     session_start();
-    print_r($_REQUEST);
+    
     if(isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['senha']))
     {
         //acessa 
@@ -8,16 +8,9 @@
         $email = $_POST['email'];
         $senha = $_POST['senha'];
 
-        print_r('Email: ' . $email);
-        print_r('<br>');
-        print_r('Senha: ' . $senha);
-
         $sql = "SELECT * FROM cadastro WHERE email = '$email' and senha = '$senha'";
-
         $result = $conn->query($sql);
 
-        print_r($sql);
-       print_r($result);
        if(mysqli_num_rows($result) < 1)
        {
         unset($_SESSION['email']);
@@ -32,7 +25,7 @@
        {
 
         $sql1="SELECT * FROM cadastro WHERE email = '$email'";
-        print_r($sql1);
+        
 
         $sql2 = "SELECT id FROM cadastro WHERE email = '$email'";
         $result2 = $conn->query($sql2);
@@ -51,7 +44,19 @@
             if(($email12 == $email1) and ($senha12 == $senha1)){ 
                 header('location: adm.php');
             }else{
-                header('location: home.php');
+
+                $sql = "SELECT user FROM cadastro WHERE email = '$email'";
+                $result = $conn->query($sql);
+                $row = $result->fetch_assoc();
+                $idUser = $row['user'];
+
+                if($idUser == 1){
+                    header('location: home.php');
+                }elseif($idUser == 2){
+                    header('location: homeDev.php');
+                }else{
+                    header('location: testUser.php');
+                }
             }
        }
     }

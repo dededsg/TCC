@@ -18,6 +18,18 @@
     $registro = mysqli_fetch_array($resultado)
 
 ?>
+<?php
+
+
+echo '<form action="seu_arquivo.php" method="post">';
+echo '<select id="mySelect" name="opcao" onchange="verificarCampos()">';
+echo '  <option value="">Selecione...</option>';
+echo '  <option value="freelancer">Freelancer</option>';
+echo '  <option value="professor">Professor</option>';
+echo '</select>';
+echo '<input type="submit" value="Enviar">';
+echo '</form>';
+?>
 
 <!DOCTYPE html>
 <html lang="pt">
@@ -46,7 +58,7 @@
         </button>
 
         <div class="col-sm-6">
-          <a href="index.php" class="logo">SlideIt4Me</a>
+          <a href="homeS.php" class="logo">SlideIt4Me</a>
         </div>
 
         <div class="col-sm-auto" style="margin-left: 370px;">

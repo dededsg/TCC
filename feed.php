@@ -17,9 +17,6 @@
     
     $registro = mysqli_fetch_array($resultado)
 
-    
-    
-
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +29,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
         <title>Cadastro de Usuário</title>
         <link rel="stylesheet" type="text/css" href="CSS.css">
@@ -67,25 +63,49 @@
       </nav>
     </div>
      
-        <div class="container">
-            <div class="row">
-                <div class="mx-auto col-sm-6" style="text-align: center; margin-top: 50px;">
-                    <h1></h1>
-                </div>
-                
-                <div class="row"> 
-                    <div class="mx-auto col-sm-6" style="text-align: center; margin-top: 20px;">
-                        
-                    </div> 
-                </div> 
+    <div class="container">
+  <div class="table-sm" style="margin-top: 20px">
+    <form action="chatpost.php" method="post">
+      <table class="table ">
+        <caption>
+          Postagens
+        </caption>
 
-                <div class="row" style="margin-top: 20px;">
-                    <div class="col-sm-6 mx-auto">
-                        <a href="postagem.php" class="inputSubmit btn btn-primary">Fazer postagem</a>
-                    </div>
-                </div>    
-            </div>
-        </div>
+        <thead>
+          <tr>
+            <th scope="col-sm-2">Matéria</th>
+            <th scope="col-sm-6">Descrição</th>
+            <th scope="col-sm-2">Prazo</th>
+            <th scope="col-sm-2">Data de postagem</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <?php
+            include('conexao.php');
+            setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
+            $data = date('d-m-Y');
+            
+            $sql = "SELECT * FROM postagem";
+            $res = mysqli_query($conn, $sql);
+            while ($linha = mysqli_fetch_array($res)){
+              if(strtotime($linha['prazo']) >= strtotime($data)){
+          ?>
+          <tr>
+            <td><?php echo $linha['materia'] ?></td>
+            <td><?php echo $linha['descricao'] ?></td>
+            <td id="prazo"><?php echo $linha['prazo'] ?></td>
+            <td><?php echo $linha['datapost'] ?></td>
+            <td>
+              <a href="chatPost.php?id=<?php echo $linha['id_postagem'] ?>" class="btn btn-primary">Editar</a>
+            </td>
+          </tr>
+          <?php }}; ?>
+        </tbody>
+      </table>
+    </form>
+  </div>
+</div>
         
     </body>
 </html>

@@ -77,13 +77,12 @@
                     <div class="mx-auto col-sm-6" style="text-align: center; margin-top: 20px;">
                         
                     </div> 
-                </div> 
-
+                </div>   
                 <div class="row" style="margin-top: 20px;">
                     <div class="col-sm-6 mx-auto">
-                        <a href="postagem.php" class="inputSubmit btn btn-primary">Fazer postagem</a>
+                        <a href="feed.php" class="inputSubmit btn btn-primary">Feed</a>
                     </div>
-                </div>    
+                </div>  
             </div>
         </div>
         

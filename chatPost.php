@@ -17,9 +17,6 @@
     
     $registro = mysqli_fetch_array($resultado)
 
-    
-    
-
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +29,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
         <title>Cadastro de Usuário</title>
         <link rel="stylesheet" type="text/css" href="CSS.css">
@@ -48,7 +44,7 @@
           <a href="home.php" class="logo">SlideIt4Me</a>
         </div>
 
-        <div class="col-sm-auto" style="margin-left: 370px;">
+            <div class="col-sm-auto" style="margin-left: 370px;">
             <a><?php echo $registro['nome']." ";echo $registro['sobrenome'];?></a>
         </div>
 
@@ -68,24 +64,14 @@
     </div>
      
         <div class="container">
-            <div class="row">
-                <div class="mx-auto col-sm-6" style="text-align: center; margin-top: 50px;">
-                    <h1></h1>
-                </div>
-                
-                <div class="row"> 
-                    <div class="mx-auto col-sm-6" style="text-align: center; margin-top: 20px;">
-                        
-                    </div> 
-                </div> 
-
-                <div class="row" style="margin-top: 20px;">
-                    <div class="col-sm-6 mx-auto">
-                        <a href="postagem.php" class="inputSubmit btn btn-primary">Fazer postagem</a>
-                    </div>
-                </div>    
-            </div>
-        </div>
-        
+            <div class="table-sm" style="margin-top: 20px">
+                <?php
+                    include('conexao.php');                
+                    $sql = "SELECT * FROM postagem";
+                    $res = mysqli_query($conn, $sql);
+                    $linha = mysqli_fetch_array($res);
+                ?>
+            </div> 
+        </div>   
     </body>
 </html>
