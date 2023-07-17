@@ -65,12 +65,25 @@
      
         <div class="container">
             <div class="table-sm" style="margin-top: 20px">
-                <?php
-                    include('conexao.php');                
-                    $sql = "SELECT * FROM postagem";
-                    $res = mysqli_query($conn, $sql);
-                    $linha = mysqli_fetch_array($res);
-                ?>
+                <?php 
+                $id = $_GET['id'];
+
+                include('conexao.php');
+
+                $sql = "SELECT * FROM postagem";
+                $res = mysqli_query($conn, $sql);
+                while ($linha = mysqli_fetch_array($res)){
+                if(($linha['id_postagem']) == ($id)){ ?> 
+
+                    <p> <?php echo $linha['materia'] ?> </p>
+                    <a> <?php echo $linha['datapost'] ?> </a>
+                    <a id="prazo"> <?php echo $linha['prazo'] ?> </a>
+                    <p> <?php echo $linha['descricao'] ?> </p>
+                    <p><?php echo 'arquivo/' . $linha['nomearquivo'] ?></p>
+                    <a href="<?php echo 'arquivos/' . $linha['nomearquivo']?>"download="<?php echo 'Slideit_' . $linha['materia']?>.pdf">Baixe o pdf! </a>
+
+                 <?php }}?>        
+                   
             </div> 
         </div>   
     </body>

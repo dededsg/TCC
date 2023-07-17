@@ -65,7 +65,7 @@
      
     <div class="container">
   <div class="table-sm" style="margin-top: 20px">
-    <form action="chatpost.php" method="post">
+    <form action="chatPost.php" method="post">
       <table class="table ">
         <caption>
           Postagens
@@ -73,10 +73,11 @@
 
         <thead>
           <tr>
-            <th scope="col-sm-2">Matéria</th>
-            <th scope="col-sm-6">Descrição</th>
-            <th scope="col-sm-2">Prazo</th>
-            <th scope="col-sm-2">Data de postagem</th>
+            <th scope="col-sm-1">Matéria</th>
+            <th scope="col-sm-8">Descrição</th>
+            <th scope="col-sm-1">Prazo</th>
+            <th scope="col-sm-1">Data de postagem</th>
+            <th scope="col-sm-1">Proposta</th>
           </tr>
         </thead>
 
@@ -91,13 +92,13 @@
             while ($linha = mysqli_fetch_array($res)){
               if(strtotime($linha['prazo']) >= strtotime($data)){
           ?>
-          <tr>
+          <tr>          
             <td><?php echo $linha['materia'] ?></td>
             <td><?php echo $linha['descricao'] ?></td>
             <td id="prazo"><?php echo $linha['prazo'] ?></td>
             <td><?php echo $linha['datapost'] ?></td>
             <td>
-              <a href="chatPost.php?id=<?php echo $linha['id_postagem'] ?>" class="btn btn-primary">Editar</a>
+              <a href="chatPost.php?id=<?php echo $linha['id_postagem'] ?>" class="btn btn-primary">Enviar</a>
             </td>
           </tr>
           <?php }}; ?>
