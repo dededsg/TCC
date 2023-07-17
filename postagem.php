@@ -18,18 +18,6 @@
     $registro = mysqli_fetch_array($resultado)
 
 ?>
-<?php
-
-
-echo '<form action="seu_arquivo.php" method="post">';
-echo '<select id="mySelect" name="opcao" onchange="verificarCampos()">';
-echo '  <option value="">Selecione...</option>';
-echo '  <option value="freelancer">Freelancer</option>';
-echo '  <option value="professor">Professor</option>';
-echo '</select>';
-echo '<input type="submit" value="Enviar">';
-echo '</form>';
-?>
 
 <!DOCTYPE html>
 <html lang="pt">
