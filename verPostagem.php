@@ -17,6 +17,9 @@
     
     $registro = mysqli_fetch_array($resultado)
 
+    
+    
+
 ?>
 
 <!DOCTYPE html>
@@ -29,6 +32,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
         <title>Cadastro de Usuário</title>
         <link rel="stylesheet" type="text/css" href="CSS.css">
@@ -63,7 +67,19 @@
       </nav>
     </div>
      
-    <div class="container">
+        <div class="container">
+            <div class="row">
+                <div class="mx-auto col-sm-6" style="text-align: center; margin-top: 50px;">
+                    <h1></h1>
+                </div>
+                
+                <div class="row"> 
+                    <div class="mx-auto col-sm-6" style="text-align: center; margin-top: 20px;">
+                    </div> 
+                </div>  
+            </div>
+        </div>
+        <div class="container">
   <div class="table-sm" style="margin-top: 20px">
     <form action="chatPost.php" method="post">
       <table class="table ">
@@ -74,31 +90,50 @@
         <thead>
           <tr>
             <th scope="col-sm-1">Matéria</th>
-            <th scope="col-sm-8">Descrição</th>
+            <th scope="col-sm-7">Descrição</th>
             <th scope="col-sm-1">Prazo</th>
             <th scope="col-sm-1">Data de postagem</th>
-            <th scope="col-sm-1">Proposta</th>
+            <th scope="col-sm-1">Status</th>
+            <th scope="col-sm-1">Respostas</th>
           </tr>
         </thead>
 
         <tbody>
           <?php
             include('conexao.php');
-            setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
-            $data = date('d-m-Y');
+            
+            $id = $_SESSION['id'];
             
             $sql = "SELECT * FROM postagem";
             $res = mysqli_query($conn, $sql);
             while ($linha = mysqli_fetch_array($res)){
-              if(strtotime($linha['prazo']) >= strtotime($data)){
+              if($linha['id_cadastro'] == $id){
           ?>
           <tr>          
             <td><?php echo $linha['materia'] ?></td>
             <td><?php echo $linha['descricao'] ?></td>
             <td id="prazo"><?php echo $linha['prazo'] ?></td>
             <td><?php echo $linha['datapost'] ?></td>
+            <?php if($linha['id_cadastroDev'] !== null){
+              $cor = "green";
+              $text = "aceito";
+            }else{
+              $cor = "red";
+              $text ="aguardando";
+            } ?>
+            <td style="color:<?php echo $cor; ?>;" ><?php echo $text; ?></td>
             <td>
-              <a href="chatPost.php?id=<?php echo $linha['id_postagem'] ?>" class="btn btn-primary">Enviar</a>
+              <?php
+                if($linha['id_cadastroDev'] == null){ 
+              ?>
+
+                <a href="chatPostUser.php?id=<?php echo $linha['id_postagem'] ?>" class="btn btn-primary">Verificar</a>
+
+              <?php }else{ ?>
+
+                <a href="chatAceito.php?id=<?php echo $linha['id_postagem'] ?>" class="btn btn-primary">Chat</a>
+
+              <?php } ?>
             </td>
           </tr>
           <?php }}; ?>

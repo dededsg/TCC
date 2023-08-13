@@ -41,7 +41,7 @@
         </button>
 
         <div class="col-sm-6">
-          <a href="home.php" class="logo">SlideIt4Me</a>
+          <a href="homeDev.php" class="logo">SlideIt4Me</a>
         </div>
 
             <div class="col-sm-auto" style="margin-left: 370px;">
@@ -67,24 +67,62 @@
             <div class="table-sm" style="margin-top: 20px">
                 <?php 
                 $id = $_GET['id'];
+                echo $id;
 
                 include('conexao.php');
 
                 $sql = "SELECT * FROM postagem";
                 $res = mysqli_query($conn, $sql);
+
                 while ($linha = mysqli_fetch_array($res)){
-                if(($linha['id_postagem']) == ($id)){ ?> 
 
-                    <p> <?php echo $linha['materia'] ?> </p>
-                    <a> <?php echo $linha['datapost'] ?> </a>
-                    <a id="prazo"> <?php echo $linha['prazo'] ?> </a>
-                    <p> <?php echo $linha['descricao'] ?> </p>
-                    <p><?php echo 'arquivo/' . $linha['nomearquivo'] ?></p>
-                    <a href="<?php echo 'arquivos/' . $linha['nomearquivo']?>"download="<?php echo 'Slideit_' . $linha['materia']?>.pdf">Baixe o pdf! </a>
+                if(($linha['id_postagem']) == ($id)){ 
+                    $idPostagem = $linha['id_postagem'];
+                ?> 
 
-                 <?php }}?>        
-                   
+                    <p> <?php echo $linha['materia']; ?> </p>
+                    <a> <?php echo $linha['datapost']; ?> </a>
+                    <a id="prazo"> <?php echo $linha['prazo']; ?> </a>
+                    <p> <?php echo $linha['descricao']; ?> </p>
+                    <a href="<?php echo 'arquivos/' . $linha['nomearquivo'];?>"download="<?php echo 'Slideit_' . $linha['materia'];?>.pdf">Baixe o pdf! </a>
+
+                 <?php }}?> 
+                 <div class="card-content">
+                    <form action="chatPost.php" method="POST" >
+                        <div class="card-content-textarea">
+                            <textarea type="text" name="proposta" placeholder="Proposta ..."></textarea>
+                        </div>
+                        <input type="hidden" name="postagem" value="<?php echo $idPostagem; ?>">
+                        <div class="row" style="margin-top: 20px;">
+                                <div class="col-sm-12 mx-auto">
+                                    <input class="col-sm-12 inputSubmit btn btn-primary" type="submit" name="but" value="Enviar" style=" margin-top: 50px; border-radius: 30px;">
+                                </div>
+                            </div>
+                    </form> 
+                </div>
             </div> 
         </div>   
     </body>
 </html>
+
+<?php
+
+if(isset($_POST['but']) && !empty($_POST['proposta'])){
+   
+    $id_dev = 0;
+    $id_dev = $_SESSION['id'];
+    $proposta = $_POST['proposta'];
+    $id_postagem = $_POST['postagem'];
+
+    echo $id_postagem;
+
+    $sql = "INSERT INTO propostas (proposta, id_postagem, id_dev) VALUES ('$proposta', '$id_postagem', '$id_dev')";
+    mysqli_query($conn, $sql);
+    echo '<script type="text/javascript">'; 
+    echo 'alert("Proposta enviada com secesso :)");'; 
+    echo 'window.location.href = "homeDev.php";';
+    echo '</script>';
+
+
+}
+?>

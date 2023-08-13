@@ -5,7 +5,7 @@
     $email1 = $_SESSION['email'] ;
     $senha1 = $_SESSION['senha'] ;
 
-    if((!isset($_SESSION['email']) == false) and (!isset($_SESSION['senha']) == false   ))
+    if((!isset($_SESSION['email']) == false) and (!isset($_SESSION['senha']) == false))
     {
         if(($email1 == $adm) and ($senha1 == $adm))
         {

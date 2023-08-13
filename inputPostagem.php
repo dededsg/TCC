@@ -53,6 +53,7 @@ if(isset($_POST['submit']) && !empty($_POST['materia'])){
                     
                     setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
                     $data = date('d-m-Y');
+                    
 
                     $sql = "INSERT INTO postagem (nomearquivo, descricao, materia, prazo, datapost, id_cadastro) 
                                         VALUES ('$nomearquivo', '$descricao', '$materia', '$prazoF', '$data', '$id_cadastro')";

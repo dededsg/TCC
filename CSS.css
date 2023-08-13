@@ -15,7 +15,6 @@ main{
     padding: 20px; 
     border: 20px;
     margin: 20px; 
-    padding-bottom: 1000px;
     
 }
 
@@ -36,6 +35,7 @@ footer{
     padding: 50px;  
     padding-bottom: 50px;
     width: 100%;
+	margin-top: 100px;
 }
 
 .logo{
@@ -135,3 +135,152 @@ select {
   #prazo{
     color: red;
   }
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*############ Estilo do chat ############*/
+
+/*
+############
+	Divisão responsável por renderizar
+	o chat
+############
+*/
+.chat{
+	border-radius: 5px;
+	padding: 20px;
+	border-radius: 10px 10px 0px 0px;
+	box-shadow: 5px 10px 10px;
+	margin-top: 100px;
+	height: 410px;
+	overflow-y: auto;
+	background-color: #2a2a2b;
+}
+
+
+/*
+############
+	Formulário responsável por
+	enviar a imagem
+############
+*/
+.formulariomsg{
+	text-align: right;
+	padding: 10px;
+	border-radius: 0px 0px 10px 10px;
+	background-color: #2a2a2b;
+	box-shadow: 5px 10px 10px;
+}
+
+
+/*
+############
+	Formatação da tag textarea, responsável
+	por ser a área de digitação das mensagens
+############
+*/
+.mensagem{
+	border: 1px solid black;
+	border-radius: 5px;
+	
+	width: 100%;
+	overflow: auto;
+	max-height: 200px;
+    height: 50px;
+    overflow-y: hidden;
+}
+
+
+
+
+/*
+############
+	Css do botão submit, reponsável por enviar
+	os dados do formulário para serem tratados
+############
+*/
+.botaoEnviar{
+	background-color: #899dd9;
+	border-radius: 5px;
+	border: 1px solid black;
+	box-shadow: 2px 2px 3px;
+	font-family: Helvetica;
+	text-align: center;
+	outline: none;
+	transition: 0.5s;
+}
+
+.botaoEnviar:hover{
+	transition: 0.5s;
+	background-color: #96bd6f;
+}
+
+/*
+############
+	Css do texto responsável por
+	renderizar o nome de quem enviou
+	a mensagem
+############
+*/
+.nome1{
+	padding: 7px;
+	background-color: #322c36;
+	border-radius: 8px;
+	margin-bottom: -6px;
+	border: 1px solid black;
+	color: white;
+}
+.nome2{
+	
+	padding: 7px;
+	background-color: #322c36;
+	border-radius: 8px;
+	margin-bottom: -6px;
+	border: 1px solid black;
+	color: white;
+}
+
+
+/*
+############
+	Css do texto responsável por
+	renderizar a mensagem enviada
+	pelo usuário
+############
+*/
+.textomensagem{
+	padding: 7px;
+	background-color: white;
+	border-radius: 10px;
+	color: black;
+	border: 1px solid black;
+}
+
+
+/*
+############
+	Css da caixa de texto responsável por
+	formatar a caixa no qual será digitado
+	o nome da pessoa que enviar a mensagem
+############
+*/
+.digitarnome{
+	border: 1px solid black;
+	border-radius: 10px;
+	padding: 4px;
+}
+
