@@ -10,6 +10,21 @@ include("conexao.php");
 session_start();
 $idUser = $_SESSION['id'];
 $idPostagem = $_GET['id'];
+
+$sqlA = "SELECT * FROM postagem WHERE id_postagem = $idPostagem";
+$resA = mysqli_query($conn, $sqlA);
+$linha = mysqli_fetch_array($resA);
+
+if($linha['id_cadastroDev'] == $idUser){
+if($linha['statu'] == 1) {
+	header('location: homeDev.php');
+}
+}
+if($linha['id_cadastro'] == $idUser){
+	if($linha['statu'] == 1) {
+		header('location: home.php');
+	}
+	}
 $sql = $pdo->query("SELECT * FROM chat");
 
   foreach ($sql->fetchAll() as $key) {
