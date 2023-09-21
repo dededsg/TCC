@@ -101,8 +101,7 @@
               <td><?php echo $linha['email'] ?></td>
               <td><?php echo $linha['senha'] ?></td>
               <td>
-                <a
-                  href="editUser.php?id=<?php echo $linha['id'] ?> "class="btn btn-primary">Editar</a>
+                <a  href="editUser.php?id=<?php echo $linha['id'] ?> "class="btn btn-primary">Editar</a>
               </td>
             </tr>
             <?php } ?>

@@ -88,6 +88,10 @@ select {
     color: red;
   }
 
+  th {
+	background-color: #ffffff00;
+  }
+
   
 
 
