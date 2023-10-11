@@ -107,7 +107,7 @@
       <div class="table-sm" style="margin-top: 20px">
 
       
-        <form action="chatPostUser.php" method="post">
+        <form action="verificaPostUser.php" method="post">
           <table class="table">
             <caption>
               Postagens
@@ -130,7 +130,7 @@
             $sql = "SELECT * FROM propostas";
             $res = mysqli_query($conn, $sql);
             while ($linha = mysqli_fetch_array($res)){
-              if(($linha['id_postagem']) >= ($id) ){ ?>
+              if(($linha['id_postagem']) == $id ){ ?>
               <tr>
                 <td><?php echo $linha['id_dev'] ?></td>
                 <td><?php echo $linha['proposta'] ?></td>

@@ -19,7 +19,7 @@
     $registro = mysqli_fetch_array($resultado);
 
 $id_cadastro = $_SESSION['id'];
-echo $id_cadastro;
+
 
 
 
@@ -72,7 +72,10 @@ if(isset($_POST['submit'])){
                     echo '</script>';
                 }
             }else{
-               
+                echo '<script type="text/javascript">'; 
+                    echo 'alert("Informe o arquivo!!");'; 
+                    echo 'window.location.href = "homeDev.php";';
+                    echo '</script>';
               
             }            
         }else{

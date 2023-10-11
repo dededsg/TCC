@@ -88,7 +88,7 @@
 
                  <?php }}?> 
                  <div class="card-content">
-                    <form action="chatPost.php" method="POST" >
+                    <form action="verificaPost.php" method="POST" >
                         <div class="card-content-textarea">
                             <textarea type="text" name="proposta" placeholder="Proposta ..."></textarea>
                         </div>

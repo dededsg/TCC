@@ -34,6 +34,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
     <title>SlideIt</title>
     <link rel="shortcut icon" href="icon/icon.png" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="CSS.css">
@@ -119,6 +124,10 @@
                 </form>
             </div>
 
+
+
+<!--------------------------------------------------------------------------------------------------------------------------------------------------->
+
 <!--------------------------------------------------------------------------------------------------------------------------------------------------->
 
             <div class="col-md-2 mx-flex col-lg-7">
@@ -132,40 +141,49 @@
             $sql = "SELECT * FROM postagem";
             $res = mysqli_query($conn, $sql);
             while ($linha = mysqli_fetch_array($res)){
-              if($linha['id_cadastro'] == $id){
-       
-            echo $linha['materia'];
+              if($linha['id_cadastro'] == $id){ ?>
+
+<a class="btn btn-primary" data-bs-toggle="collapse" href="<?php echo "#" . $linha['id_postagem']; ?>" role="button" aria-expanded="false" aria-controls="<?php echo $linha['id_postagem']; ?>">
+    Link with href
+    <?php echo "#" . $linha['id_postagem']; ?>
+  </a>
+
+  <div class="collapse" id="<?php echo $linha['id_postagem']; ?>">
+  <div class="card card-body">
+    <?php  echo $linha['materia'];
             echo $linha['prazo'] ;
             echo $linha['datapost'] ;
-
-
-           if($linha['id_cadastroDev'] == null){
-              $cor = "orange";
-              $text ="aguardando";
-            }elseif($linha['statu'] == 1){
-              $cor = "blue";
-              $text ="concluído";
-            }elseif($linha['statu'] == 2){
-              $cor = "red";
-              $text = "cancelado";
-            }else{
-              $cor = "green";
-              $text = "aceito";
-            } ?>
-
-            <td style="background-color: #ffffff00; color:<?php echo $cor; ?>;"><?php echo $text; ?></td>
+            
+            if($linha['id_cadastroDev'] == null){
+               $cor = "orange";
+               $text ="aguardando";
+             }elseif($linha['statu'] == 1){
+               $cor = "blue";
+               $text ="concluído";
+             }elseif($linha['statu'] == 2){
+               $cor = "red";
+               $text = "cancelado";
+             }else{
+               $cor = "green";
+               $text = "aceito";
+             } ?>
+ 
+             <td style="background-color: #ffffff00; color:<?php echo $cor; ?>;"><?php echo $text; ?></td>
+  
+  </div>
+</div>
             <td style="background-color: #ffffff00;">
                         <?php if($linha['id_cadastroDev'] == null){ ?>
-                        <a href="chatPostUser.php?id=<?php echo $linha['id_postagem'] ?>"
+                        <a href="verificaPostUser.php?id=<?php echo $linha['id_postagem']; ?>"
                             class="btn btn-primary col-sm-12">Verificar</a>
                         <?php }elseif($linha['statu'] == null){ ?>
-                        <a href="chatAceito.php?id=<?php echo $linha['id_postagem'] ?>"
-                            class="btn btn-primary col-sm-12">Chat</a>
+                        <a href="verificaAceito.php?id=<?php echo $linha['id_postagem']; ?>"
+                            class="btn btn-primary col-sm-12">Detalhes</a>
                         <?php }elseif($linha['statu'] == 1){ ?>
-                        <a href="historico.php?id=<?php echo $linha['id_postagem'] ?>"
+                        <a href="historico.php?id=<?php echo $linha['id_postagem']; ?>"
                             class="btn btn-primary col-sm-12">Histórico</a>
                         <?php }elseif($linha['statu'] == 2){ ?>
-                        <a class="btn btn-danger col-sm-9">Cancelado</a>
+                        <a class="btn btn-danger col-sm-12">Cancelado</a>
                         <?php }?>
                     </td>
                     </tr>

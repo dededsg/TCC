@@ -92,23 +92,10 @@ if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true
 
           <!-- Inicio do col-md-7 -->
           <div class="col-md-8 ">
-            <h1>Chat</h1>
+            <h1>Mensagens</h1>
             <!-- Divisão que renderiza o chat -->
-            <div class="chat" id="chat">
 
-            </div>
-
-            <!-- Formulário de envios das mensagens -->
-            <div class="formulariomsg" action="sendmessage.php" method="POST">
-              <textarea name="mensagem" tabindex="0" id='msg' class="mensagem" placeholder="Digite sua mensagem aqui."></textarea><br>
-              <input type="hidden" id='nome' name="nome" value="<?php echo $_SESSION['id']; ?>">
-              <input type="hidden" id='idPost' name="idPost" value="<?php echo $_GET['id']; ?>">
-              <input type="button" class="botaoEnviar" Value="Enviar" id="btnEnviar">
-
-            </div>
-          </div>
-          <!-- Final do col-md-7 -->
-          <form action="chatAceito.php" method="POST">
+          <form action="verificaAceito.php" method="POST">
             <input type="hidden" id='id' name="id" value="<?php echo $_GET['id']; ?>">
             <input type="submit" class="col btn-danger" Value="Cancelar" name="btnCancelar" id="btnCancelar">
           </form>

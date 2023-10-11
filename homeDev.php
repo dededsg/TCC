@@ -104,9 +104,9 @@
 
             <td>
               <?php if($linha['statu'] == null){ ?>
-                <a href="chatAceito.php?id=<?php echo $linha['id_postagem'] ?>" class="btn btn-primary">Chat</a>
+                <a href="verificaAceito.php?id=<?php echo $linha['id_postagem'];?>" class="btn btn-primary">Detalhes</a>
               <?php }elseif($linha['statu'] == 1){ ?>
-                <a href="historico.php?id=<?php echo $linha['id_postagem'] ?>" class="btn btn-primary">Histórico</a>
+                <a href="historico.php?id=<?php echo $linha['id_postagem']; ?>" class="btn btn-primary">Histórico</a>
               <?php }elseif($linha['statu'] == 2){ ?>
                 <a class="btn btn-danger">Cancelado</a>
                 <?php } ?>
@@ -153,7 +153,7 @@
             <td id="prazo"><?php echo $linha['prazo'] ?></td>
             <td><?php echo $linha['datapost'] ?></td>
             <td>
-              <a href="chatPost.php?id=<?php echo $linha['id_postagem'] ?>" class="btn btn-primary">Verificar</a>
+              <a href="verificaPost.php?id=<?php echo $linha['id_postagem']; ?>" class="btn btn-primary">Verificar</a>
             </td>
           </tr>
           <?php }}; ?>
