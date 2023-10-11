@@ -49,6 +49,7 @@ header('location: login.php');
         </div>
 
 
+
         <div class="main container">
             <main>
                 <p>Texto</p>
@@ -56,5 +57,7 @@ header('location: login.php');
         </div>
 
 </body>
+</html>
+    </body>
 </html>
 
