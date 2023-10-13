@@ -6,7 +6,7 @@
         //acessa 
         include_once('conexao.php');
         $email = $_POST['email'];
-        $senha = $_POST['senha'];
+        $senha = md5($_POST['senha']);
 
         $sql = "SELECT * FROM cadastro WHERE email = '$email' and senha = '$senha'";
         $result = $conn->query($sql);

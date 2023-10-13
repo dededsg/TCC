@@ -6,7 +6,7 @@ if(isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['senha'])
 {
     
     //cadastrar
-    $senha = $_POST['senha'];
+    $senha = md5($_POST['senha']);
     $nome = $_POST['nome'];
     $sobrenome = $_POST['sobrenome'];
     $email = $_POST['email'];

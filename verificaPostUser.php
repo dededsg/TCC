@@ -18,67 +18,39 @@
     $registro = mysqli_fetch_array($resultado)
 
 ?>
-
 <!DOCTYPE html>
 <html lang="pt">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
-    <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
-    <title>Cadastro de Usuário</title>
-    <link rel="stylesheet" type="text/css" href="CSS.css" />
-  </head>
-  <body>
-    <div class="row">
-      <nav class="navbar navbar-expand-sm">
-        <button
-          class="navbar-toggler"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarContent"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
 
-        <div class="col-sm-6">
-          <a href="home.php" class="logo">SlideIt4Me</a>
-        </div>
 
-        <div class="col-sm-auto" style="margin-left: 370px">
-          <a><?php echo $registro['nome']." ";echo $registro['sobrenome'];?></a>
-        </div>
 
-        <div class="col-sm-auto">
-          <lord-icon
-            src="https://cdn.lordicon.com/dxjqoygy.json"
-            trigger="hover"
-            colors="primary:#121331,secondary:#000000"
-            style="
-              width: 40px;
-              height: 40px;
-              margin-left: 10px;
-              margin-right: 10px;
-            "
-          >
-          </lord-icon>
-        </div>
+    <title>SlideIt</title>
+    <link rel="shortcut icon" href="icon/icon.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="CSS.css">
+    <style>
+    </style>
+</head>
 
-        <div class="col-sm-" style="margin-right: 40px; margin-left: 40px">
-          <a href="sair.php" class="btn btn-danger" id="nome5">Sair</a>
-        </div>
-      </nav>
-    </div>
+<body style="height: 100vh; background: linear-gradient(0,  #040437, #010118);">
 
     <div class="container">
-      <div class="table-sm" style="margin-top: 20px">
-        <?php 
+        <div class="row">
+
+            <a href="index.php" class="logo1 mt-3">SlideIt</a>
+        </div>
+        <div class="row boder rounded-1 border border-primary mb-2 mt-5">
+
+            <div style="color: white;">
+                <?php 
                 $id = $_GET['id'];
                 include('conexao.php');
                 $sql = "SELECT * FROM postagem";
@@ -89,67 +61,67 @@
                 if(($linha['id_postagem']) == ($id)){
         ?>
 
-        <p><?php echo $linha['materia'] ?></p>
-        <a> <?php echo $linha['datapost'] ?> </a>
-        <a id="prazo"> <?php echo $linha['prazo'] ?> </a>
-        <p><?php echo $linha['descricao'] ?></p>
-        <a
-          href="<?php echo 'arquivos/' . $linha['nomearquivo']?>"
-          download="<?php echo 'Slideit_' . $linha['materia']?>.pdf"
-          >Baixe o pdf!
-        </a>
+                <h4 class="mt-2"><?php echo $linha['materia'] ?></h4>
+                <a>Postagem:</a>
+                <a><?php echo $linha['datapost'] ?> </a> <br>
+                <a id="prazo">Prazo: <?php echo $linha['prazo'] ?> </a>
+                <p>Descrição: <?php echo $linha['descricao'] ?></p>
 
-        <?php
+                <a href="<?php echo 'arquivos/' . $linha['nomearquivo']?>"
+                    download="<?php echo 'Slideit_' . $linha['materia']?>.pdf">Baixe o pdf!
+                </a>
+                <?php
             }
           };
         ?>
-      </div>
-      <div class="table-sm" style="margin-top: 20px">
-
-      
+            </div>
+        </div>
+        <div>
         <form action="verificaPostUser.php" method="post">
-          <table class="table">
-            <caption>
-              Postagens
-            </caption>
-
-            <thead>
-              <tr>
-                <th scope="col-sm-1">Autor</th>
-                <th scope="col-sm-8">Proposta</th>
-                <th scope="col-sm-1"></th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <?php
+            <div style="color: white;">
+            
+                <?php
             include('conexao.php');
-
-            
-            
             $sql = "SELECT * FROM propostas";
             $res = mysqli_query($conn, $sql);
             while ($linha = mysqli_fetch_array($res)){
               if(($linha['id_postagem']) == $id ){ ?>
-              <tr>
-                <td><?php echo $linha['id_dev'] ?></td>
-                <td><?php echo $linha['proposta'] ?></td>
-                <td>
-                  <div class="col-sm-12 mx-auto">
-                      <input type="hidden" name="id_dev" value="<?php echo $linha['id_dev']; ?>">
-                      <input type="hidden" name="id_post" value="<?php echo $linha['id_postagem']; ?>">
-                      <input class="col-sm-12 inputSubmit btn btn-primary" type="submit" name="buta" value="Aceitar">
+
+              
+                <div class="row rounded-1 border border-primary">
+                  <div class="col-sm-10">
+
+                    <h6 class="mt-2"><?php 
+                    $idDev = $linha['id_dev'];
+                    $sql1 = "SELECT * FROM cadastro WHERE id = '$idDev'";
+                    $res1 = mysqli_query($conn, $sql1);
+                    $text = mysqli_fetch_array($res1);
+                    echo $text['nome'];
+                    ?></h6>
+                    <a>Proposta:</a>
+                    <a><?php echo $linha['proposta'] ?></a>
                   </div>
-                </td>
-              </tr>
-              <?php }}; ?>
-            </tbody>
-          </table>
+                  <div class="col-sm-2">
+                            <input type="hidden" name="id_dev" value="<?php echo $linha['id_dev']; ?>">
+                            <input type="hidden" name="id_post" value="<?php echo $linha['id_postagem']; ?>">
+                            <input class="col-sm-12 mt-2 inputSubmit btn btn-primary" type="submit" name="buta" value="Aceitar">
+                   </div>
+                  </div>
+
+
+                <?php }}; ?>
+
+
+            </div>
         </form>
 
-      </div>
+
     </div>
-  </body>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+</body>
 </html>
 
 <?php
@@ -167,6 +139,4 @@
       echo '</script>';
     }
 }
-
- 
 ?>

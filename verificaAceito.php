@@ -23,10 +23,10 @@ if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true
 
 
 ?>
-  <!DOCTYPE html>
-  <html lang="pt">
+<!DOCTYPE html>
+<html lang="pt">
 
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -39,69 +39,72 @@ if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true
     <title>Cadastro de Usuário</title>
     <link rel="stylesheet" type="text/css" href="CSS.css">
     <style>
-      input[type="file"] {
+    input[type="file"] {
         display: none;
-      }
+    }
     </style>
-  </head>
+</head>
 
-  <body>
+<body>
     <div class="row">
-      <nav class="navbar navbar-expand-sm">
-        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarContent">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+        <nav class="navbar navbar-expand-sm">
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <div class="col-sm-6">
-          <a href="home.php" class="logo">SlideIt4Me</a>
-        </div>
+            <div class="col-sm-6">
+                <a href="home.php" class="logo">SlideIt4Me</a>
+            </div>
 
-        <div class="col-sm-auto" style="margin-left: 370px;">
-          <a><?php echo $registro['nome'] . " ";
+            <div class="col-sm-auto" style="margin-left: 370px;">
+                <a><?php echo $registro['nome'] . " ";
               echo $registro['sobrenome']; ?></a>
-        </div>
+            </div>
 
-        <div class="col-sm-auto">
-          <lord-icon src="https://cdn.lordicon.com/dxjqoygy.json" trigger="hover" colors="primary:#121331,secondary:#000000" style="width:40px; height:40px; margin-left: 10px; margin-right: 10px;">
-          </lord-icon>
-        </div>
+            <div class="col-sm-auto">
+                <lord-icon src="https://cdn.lordicon.com/dxjqoygy.json" trigger="hover"
+                    colors="primary:#121331,secondary:#000000"
+                    style="width:40px; height:40px; margin-left: 10px; margin-right: 10px;">
+                </lord-icon>
+            </div>
 
-        <div class="col-sm-" style="margin-right: 40px; margin-left: 40px;">
-          <a href="sair.php" class="btn btn-danger" id="nome5">Sair</a>
-        </div>
-      </nav>
+            <div class="col-sm-" style="margin-right: 40px; margin-left: 40px;">
+                <a href="sair.php" class="btn btn-danger" id="nome5">Sair</a>
+            </div>
+        </nav>
     </div>
 
     <div class="container">
-      <div class="row">
-        <div class="mx-auto col-sm-6" style="text-align: center; margin-top: 50px;">
-          <h1></h1>
-        </div>
-
         <div class="row">
-          <div class="mx-auto col-sm-6" style="text-align: center; margin-top: 20px;">
+            <div class="mx-auto col-sm-6" style="text-align: center; margin-top: 50px;">
+                <h1></h1>
+            </div>
 
-          </div>
+            <div class="row">
+                <div class="mx-auto col-sm-6" style="text-align: center; margin-top: 20px;">
+
+                </div>
+            </div>
         </div>
-      </div>
 
-      <div class="container">
+        <div class="container">
 
-        <!-- Incio da row -->
-        <div class="row justify-content-center">
+            <!-- Incio da row -->
+            <div class="row justify-content-center">
 
-          <!-- Inicio do col-md-7 -->
-          <div class="col-md-8 ">
-            <h1>Mensagens</h1>
-            <!-- Divisão que renderiza o chat -->
+                <!-- Inicio do col-md-7 -->
+                <div class="col-md-8 ">
+                    <h1>Mensagens</h1>
+                    <!-- Divisão que renderiza o chat -->
 
-          <form action="verificaAceito.php" method="POST">
-            <input type="hidden" id='id' name="id" value="<?php echo $_GET['id']; ?>">
-            <input type="submit" class="col btn-danger" Value="Cancelar" name="btnCancelar" id="btnCancelar">
-          </form>
+                    <form action="verificaAceito.php" method="POST">
+                        <input type="hidden" id='id' name="id" value="<?php echo $_GET['id']; ?>">
+                        <input type="submit" class="col btn-danger" Value="Cancelar" name="btnCancelar"
+                            id="btnCancelar">
+                    </form>
 
 
-          <?php
+                    <?php
           $id = $_SESSION['id'];
           $sqlV = "SELECT * FROM cadastro WHERE id = $id ";
           $resV = mysqli_query($conn, $sqlV);
@@ -110,47 +113,50 @@ if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true
           if ($linhaV['user'] === "2") {
           ?>
 
-            <form action="concluir.php" method="POST" enctype="multipart/form-data">
-              <input type="submit" class="col btn-success" Value="Concluir" name="submit" id="submit">
-              <input type="hidden" id='id' name="id" value="<?php echo $_GET['id']; ?>">
-              <label for="arquivo" style="width: 200px; padding: .375rem .75rem; background-color: #0d6efd; color: #FFF; text-align: center; display: inline; margin-top: 30px; margin-bottom: 20px; cursor: pointer; border-radius: 30px; ">Arquivo</label>
-              <input type="file" name="arquivo" id="arquivo">
-              <span id="nomearquivo"></span>
-            </form>
+                    <form action="concluir.php" method="POST" enctype="multipart/form-data">
+                        <input type="submit" class="col btn-success" Value="Concluir" name="submit" id="submit">
+                        <input type="hidden" id='id' name="id" value="<?php echo $_GET['id']; ?>">
+                        <label for="arquivo"
+                            style="width: 200px; padding: .375rem .75rem; background-color: #0d6efd; color: #FFF; text-align: center; display: inline; margin-top: 30px; margin-bottom: 20px; cursor: pointer; border-radius: 30px; ">Arquivo</label>
+                        <input type="file" name="arquivo" id="arquivo">
+                        <span id="nomearquivo"></span>
+                    </form>
 
-          <?php
+                    <?php
           }
           ?>
 
-        </div>
-        <!-- Final da row -->
+                </div>
+                <!-- Final da row -->
 
-      </div>
-      <!-- Final do container -->
-      <div>
-        <footer>
-          <p style="text-align: center;">
-            Copyright © 2023 Slideit4me
-          </p>
-        </footer>
-      </div>
-  </body>
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-  <!-- /jQuery -->
-  <?php
+            </div>
+            <!-- Final do container -->
+            <div>
+                <footer>
+                    <p style="text-align: center;">
+                        Copyright © 2023 Slideit4me
+                    </p>
+                </footer>
+            </div>
+</body>
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+<?php
   $valor = $_GET['id'];
   ?>
+<script>
+var valorGET = <?php echo json_encode($valor); ?>;
+document.getElementById('arquivo').onchange = function() {
+    document.getElementById("nomearquivo").innerHTML = this.value;
+};
+</script>
+<script type="text/javascript" src="script.js"> </script>
 
-  <script>
-    var valorGET = <?php echo json_encode($valor); ?>;
-    document.getElementById('arquivo').onchange = function() {
-      document.getElementById("nomearquivo").innerHTML = this.value;
-    };
-  </script>
-  <script type="text/javascript" src="script.js"> </script>
-
-  </html>
+</html>
 
 <?php
 

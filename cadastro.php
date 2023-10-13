@@ -58,7 +58,7 @@
                         </label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" name="email" class="form-control" id="inputEmail" placeholder="E-mail"
+                        <input type="email" name="email" class="form-control" id="inputEmail" placeholder="E-mail"
                             required>
                         <label for="inputEmail">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
