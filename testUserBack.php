@@ -25,7 +25,7 @@ if(isset($_POST['submit'])) {
             mysqli_close($conn);
             echo '<script type="text/javascript">'; 
             echo 'alert("!!!!!!!!!--ERROR--!!!!!!!!");'; 
-            echo 'window.location.href = "index.php";';
+            echo 'window.location.href = "cadastro.php";';
             echo '</script>';
         }
         
@@ -33,7 +33,7 @@ if(isset($_POST['submit'])) {
         mysqli_close($conn);
         echo '<script type="text/javascript">'; 
         echo 'alert("!!!!!!!!!--ERROR--!!!!!!!!");'; 
-        echo 'window.location.href = "index.php";';
+        echo 'window.location.href = "cadastro.php";';
         echo '</script>';
     
   
@@ -42,7 +42,7 @@ if(isset($_POST['submit'])) {
           
     echo '<script type="text/javascript">'; 
     echo 'alert("Informe todos os campos!");'; 
-    echo 'window.location.href = "cadastro.php";';
+    echo 'window.location.href = "login.php";';
     echo '</script>';
 }
 ?>

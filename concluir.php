@@ -19,7 +19,8 @@
     $registro = mysqli_fetch_array($resultado);
 
 $id_cadastro = $_SESSION['id'];
-
+$id = $_POST['id'];
+echo $id;
 
 
 
@@ -39,52 +40,75 @@ if(isset($_POST['submit'])){
                     $nomearquivo1 .= $nomearquivo;
 
                     $id = $_POST['id'];
+                    echo $id;
                     $num = 1;
                     $sqlUpdate = "UPDATE postagem SET result='$nomearquivo', statu='$num' WHERE id_postagem=$id";
 
                     mysqli_query($conn, $sqlUpdate);
                     if(mysqli_affected_rows($conn) > 0) {
                         echo '<script type="text/javascript">'; 
-                        echo 'alert("Postagem feita com secesso :)");'; 
+                        echo 'alert("Postagem feita com sucesso!");'; 
                         echo 'window.location.href = "homeDev.php";';
                         echo '</script>';
             
                     }else{
-                        mysqli_close($conn);
-                    }
-
-                    if(move_uploaded_file($temporario, $pasta. $novoNome)){
-                        echo '<script type="text/javascript">'; 
-                        echo 'alert("Upload feito com secesso :)");'; 
-                        echo 'window.location.href = "chatAceito.php";';
-                        echo '</script>';
                         
-                    }else{
                         echo '<script type="text/javascript">'; 
-                        echo 'alert("Não foi possivel fazer o upload!!");'; 
-                        echo 'window.location.href = "chatAceito.php";';
+                        echo 'alert("Não foi possível fazer o upload!");'; 
+                        echo 'window.location.href = "homeDev.php";';
                         echo '</script>';
                     }
                 }else{  
                     echo '<script type="text/javascript">'; 
-                    echo 'alert("Formato de arquivo incompativél!!");'; 
-                    echo 'window.location.href = "chatAceito.php";';
+                    echo 'alert("Formato de arquivo incompatível. Apenas PDF!");'; 
+                    echo 'window.location.href = "homeDev.php";';
                     echo '</script>';
                 }
             }else{
                 echo '<script type="text/javascript">'; 
-                    echo 'alert("Informe o arquivo!!");'; 
+                    echo 'alert("Informe o arquivo!");'; 
                     echo 'window.location.href = "homeDev.php";';
                     echo '</script>';
               
             }            
-        }else{
+        }elseif(isset($_POST['excluir'])) {
+                $status = 2;
+                $idUser = $_SESSION['id'];
+                $id = $_POST['id'];
+                echo $id;
+            
+                $sqlCancela = "UPDATE postagem SET statu = '$status' WHERE id_postagem = $id";
+                mysqli_query($conn, $sqlCancela);
+            
+                $sql = "SELECT * FROM postagem WHERE id_postagem = $id";
+                $res = mysqli_query($conn, $sql);
+                $linha = mysqli_fetch_array($res);
+            
+                if (mysqli_affected_rows($conn) > 0) {
+                  if ($linha['statu'] == 2) {
+            
+                    echo '<script type="text/javascript">';
+                    echo 'alert("Cancelado com sucesso!");';
+                    echo 'window.location.href = "homeDev.php";';
+                    echo '</script>';
+                  } else {
+            
+                    echo '<script type="text/javascript">';
+                    echo 'alert("!!!ERRO!!!");';
+                    echo 'window.location.href = "homeDev.php";';
+                    echo '</script>';
+                  }
+                }
+                echo '<script type="text/javascript">';
+                    echo 'alert("!!!ERRO!!!");';
+                    echo 'window.location.href = "homeDev.php";';
+                    echo '</script>';
+              }else{
            
                 echo '<script type="text/javascript">'; 
-                echo 'alert("Informe o campo de arquivo!!2");'; 
-                echo 'window.location.href = "chatAceito.php";';
+                echo 'alert("Informe o arquivo!");'; 
+                echo 'window.location.href = "homeDev.php";';
                 echo '</script>';
             }
-
 ?> 
 

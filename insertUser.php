@@ -25,7 +25,7 @@ if(isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['senha'])
         mysqli_query($conn, $sql);
         if(mysqli_affected_rows($conn) > 0) {
             echo '<script type="text/javascript">'; 
-            echo 'alert("Cadastro concluido com sucesso!");'; 
+            echo 'alert("Cadastro concluído com sucesso!");'; 
             echo 'window.location.href = "login.php";';
             echo '</script>';
         

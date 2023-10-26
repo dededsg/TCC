@@ -16,7 +16,7 @@
         unset($_SESSION['email']);
         unset($_SESSION['senha']);
         echo '<script type="text/javascript">'; 
-        echo 'alert("Usuário ou senha incorreto");'; 
+        echo 'alert("Usuário ou senha incorreto!");'; 
         echo 'window.location.href = "login.php";';
         echo '</script>';
             

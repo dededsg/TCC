@@ -40,7 +40,7 @@
     </style>
 </head>
 
-<body style="height: 100vh; background: linear-gradient(0,  #040437, #010118);">
+<body style="height: 100vh; background: linear-gradient(0,  #010118, #040437);">
 
     <div class="container">
         <div class="row">
@@ -134,7 +134,7 @@
     mysqli_query($conn, $sqlUpdate);
     if (mysqli_affected_rows($conn) > 0) {
       echo '<script type="text/javascript">'; 
-      echo 'alert("Trabalho aceito com sucesso!!");'; 
+      echo 'alert("Trabalho aceito com sucesso!");'; 
       echo 'window.location.href = "home.php";';
       echo '</script>';
     }

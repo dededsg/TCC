@@ -61,7 +61,7 @@ if(isset($_POST['submit']) && !empty($_POST['materia'])){
                     mysqli_query($conn, $sql);
                     if(mysqli_affected_rows($conn) > 0) {
                         echo '<script type="text/javascript">'; 
-                        echo 'alert("Postagem feita com secesso :)");'; 
+                        echo 'alert("Postagem feita com sucesso!");'; 
                         echo 'window.location.href = "home.php";';
                         echo '</script>';
             
@@ -71,44 +71,44 @@ if(isset($_POST['submit']) && !empty($_POST['materia'])){
 
                     if(move_uploaded_file($temporario, $pasta. $novoNome)){
                         echo '<script type="text/javascript">'; 
-                        echo 'alert("Upload feito com secesso :)");'; 
-                        echo 'window.location.href = "postagem.php";';
+                        echo 'alert("Upload feito com sucesso!");'; 
+                        echo 'window.location.href = "home.php";';
                         echo '</script>';
                         
                     }else{
                         echo '<script type="text/javascript">'; 
-                        echo 'alert("Não foi possivel fazer o upload!!");'; 
-                        echo 'window.location.href = "postagem.php";';
+                        echo 'alert("Não foi possível fazer o upload!");'; 
+                        echo 'window.location.href = "home.php";';
                         echo '</script>';
                     }
                 }else{  
                     echo '<script type="text/javascript">'; 
-                    echo 'alert("Formato de arquivo incompativél!!");'; 
-                    echo 'window.location.href = "postagem.php";';
+                    echo 'alert("Formato de arquivo incompatível!");'; 
+                    echo 'window.location.href = "home.php";';
                     echo '</script>';
                 }
             }else{
                 echo '<script type="text/javascript">'; 
-                echo 'alert("Informe o campo de arquivo!!");'; 
-                echo 'window.location.href = "postagem.php";';
+                echo 'alert("Informe o arquivo!");'; 
+                echo 'window.location.href = "home.php";';
                 echo '</script>';
             }
         }else{
             echo '<script type="text/javascript">'; 
-            echo 'alert("Informe o campo de prazo!!");'; 
-            echo 'window.location.href = "postagem.php";';
+            echo 'alert("Informe o prazo!");'; 
+            echo 'window.location.href = "home.php";';
             echo '</script>';  
         }
     }else{
         echo '<script type="text/javascript">'; 
-        echo 'alert("Informe o campo de descrição!!");'; 
-        echo 'window.location.href = "postagem.php";';
+        echo 'alert("Informe a descrição!");'; 
+        echo 'window.location.href = "home.php";';
         echo '</script>';
     }
 }else{
     echo '<script type="text/javascript">'; 
-    echo 'alert("informe o campo de matéria!!");'; 
-    echo 'window.location.href = "postagem.php";';
+    echo 'alert("Informe a matéria!");'; 
+    echo 'window.location.href = "home.php";';
     echo '</script>';
 }
 ?> 

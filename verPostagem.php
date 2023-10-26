@@ -34,7 +34,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
-        <title>Cadastro de Usuário</title>
+        <title>Slideit</title>
         <link rel="stylesheet" type="text/css" href="CSS.css">
     </head>
     <body>
@@ -45,7 +45,7 @@
         </button>
 
         <div class="col-sm-6">
-          <a href="home.php" class="logo">SlideIt4Me</a>
+          <a href="home.php" class="logo">SlideIt</a>
         </div>
 
         <div class="col-sm-auto" style="margin-left: 370px;">

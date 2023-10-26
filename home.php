@@ -42,7 +42,7 @@
     </style>
 </head>
 
-<body style=" background: linear-gradient(0,  #040437, #010118);">
+<body style=" background: linear-gradient(0,  #010118, #040437);">
     <div class="container">
         <div class="row">
             <a href="index.php" class="logo1 mt-3">SlideIt</a>
@@ -59,17 +59,17 @@
                     </div>
                     <div class="form-floating mb-3">
                         <select name="materia" class="form-select" aria-label="Default select example">
-                            <option value="Portugues">Portugues</option>
-                            <option value="Matematica">Matematica</option>
+                            <option value="Portugues">Português</option>
+                            <option value="Matematica">Matemática</option>
                             <option value="Geografia">Geografia</option>
                             <option value="História">História</option>
-                            <option value="Informatica">Informatica</option>
+                            <option value="Informatica">Informática</option>
                             <option value="Sociologia">Sociologia</option>
                             <option value="Filosofia">Filosofia</option>
-                            <option value="Educação fisica">Educação fisica</option>
+                            <option value="Educação fisica">Educação física</option>
                             <option value="Biologia">Biologia</option>
-                            <option value="Fisica">Fisica</option>
-                            <option value="Ingles">Ingles</option>
+                            <option value="Fisica">Física</option>
+                            <option value="Ingles">Inglês</option>
                             <option value="Artes">Artes</option>
                         </select>
                         <label for="inputMateria">
@@ -82,7 +82,7 @@
                                 <path
                                     d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z" />
                             </svg>
-                            Selecione a materia
+                            Selecione a matéria
                         </label>
                     </div>
                     <div class="form-floating mb-3">
