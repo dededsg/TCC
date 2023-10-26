@@ -40,7 +40,7 @@
     </style>
 </head>
 
-<body style=" background: linear-gradient(0,  #010118, #040437); height: 100vh;">
+<body style="background: linear-gradient(0,  #010118, #040437, #010118);">
 
     <?php
 

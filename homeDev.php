@@ -32,7 +32,7 @@
     </style>
 </head>
 
-<body style=" background: linear-gradient(0,  #010118, #040437);">
+<body style="background: linear-gradient(0,  #010118, #040437, #010118);">
     <div class="container">
         <div class="row">
             <a href="index.php" class="logo1 mt-3">SlideIt</a>
@@ -150,8 +150,9 @@ while ($linha = mysqli_fetch_array($res)){
                         </div>
                     </div>
                 </div>
-            </div>
+            
             <?php }} ?>
+        </div>
         </div>
     </div>
     </div>

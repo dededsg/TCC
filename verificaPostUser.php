@@ -40,7 +40,7 @@
     </style>
 </head>
 
-<body style="height: 100vh; background: linear-gradient(0,  #010118, #040437);">
+<body style="background: linear-gradient(0,  #010118, #040437, #010118);">
 
     <div class="container">
         <div class="row">

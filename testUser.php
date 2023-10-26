@@ -39,7 +39,7 @@
     <link rel="stylesheet" type="text/css" href="CSS.css">
 </head>
 
-<body style="background-color: #040428;">
+<body style="background: linear-gradient(0,  #010118, #040437, #010118);">
     <div class="container">
         <div class="row mb-5">
             <a href="index.php" class="logo1 mt-3">SlideIt</a>
