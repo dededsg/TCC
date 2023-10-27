@@ -63,8 +63,13 @@ if(isset($_POST['but']) && !empty($_POST['proposta'])){
 }
 ?>
     <div class="container">
-        <div class="row">
-            <a href="index.php" class="logo1 mt-3">SlideIt</a>
+    <div class="row">
+            <div class="col-sm-6">
+                <a href="index.php" class="logo1 mt-3">SlideIt</a>
+            </div>
+            <div class="col-sm-6 d-flex flex-row-reverse" >
+                <a href="voltar.php?id=homeDev" class="btn btn-lg btn-outline-danger mt-3" style="height: 60%;" id="nome5">Voltar</a>
+            </div>
         </div>
         <div class="row mt-5  align-items-center" style="justify-content: space-around;">
             <!---------------------------------------------------------------------------------------------------------------------------------------------->

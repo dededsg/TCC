@@ -20,7 +20,7 @@
 
 $id_cadastro = $_SESSION['id'];
 $id = $_POST['id'];
-echo $id;
+
 
 
 
@@ -40,14 +40,14 @@ if(isset($_POST['submit'])){
                     $nomearquivo1 .= $nomearquivo;
 
                     $id = $_POST['id'];
-                    echo $id;
+                    
                     $num = 1;
                     $sqlUpdate = "UPDATE postagem SET result='$nomearquivo', statu='$num' WHERE id_postagem=$id";
 
                     mysqli_query($conn, $sqlUpdate);
                     if(mysqli_affected_rows($conn) > 0) {
-                        echo '<script type="text/javascript">'; 
-                        echo 'alert("Postagem feita com sucesso!");'; 
+                        echo '<script type="text/javascript">';
+                        echo 'alert("Trabalho concluído!");'; 
                         echo 'window.location.href = "homeDev.php";';
                         echo '</script>';
             
@@ -75,7 +75,7 @@ if(isset($_POST['submit'])){
                 $status = 2;
                 $idUser = $_SESSION['id'];
                 $id = $_POST['id'];
-                echo $id;
+                
             
                 $sqlCancela = "UPDATE postagem SET statu = '$status' WHERE id_postagem = $id";
                 mysqli_query($conn, $sqlCancela);
@@ -110,5 +110,4 @@ if(isset($_POST['submit'])){
                 echo 'window.location.href = "homeDev.php";';
                 echo '</script>';
             }
-?> 
-
+?>

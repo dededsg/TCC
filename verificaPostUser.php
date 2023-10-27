@@ -43,9 +43,13 @@
 <body style="background: linear-gradient(0,  #010118, #040437, #010118);">
 
     <div class="container">
-        <div class="row">
-
-            <a href="index.php" class="logo1 mt-3">SlideIt</a>
+    <div class="row">
+            <div class="col-sm-6">
+                <a href="index.php" class="logo1 mt-3">SlideIt</a>
+            </div>
+            <div class="col-sm-6 d-flex flex-row-reverse" >
+                <a href="voltar.php?id=home" class="btn btn-lg btn-outline-danger mt-3" style="height: 60%;" id="nome5">Voltar</a>
+            </div>
         </div>
         <div class="row boder rounded-1 border border-primary mb-2 mt-5">
 

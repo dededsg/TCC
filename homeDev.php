@@ -8,7 +8,16 @@
         header('location: login.php');
     }
     $logado = $_SESSION['email'];
-    include_once('conexao.php');    
+    include_once('conexao.php'); 
+    
+    $sql13 = "SELECT * FROM cadastro WHERE email = '$logado' and user = '2'";
+    $result13 = $conn->query($sql13);
+    if(mysqli_num_rows($result13) < 1){
+        unset($_SESSION['email']);
+        unset($_SESSION['senha']);
+        header('location: login.php');
+    }
+    
     $sql = "SELECT * FROM cadastro WHERE email = '$logado'";
     $resultado = mysqli_query($conn, $sql) or die("Erro ao retornar dados");
     $registro = mysqli_fetch_array($resultado)
@@ -35,7 +44,13 @@
 <body style="background: linear-gradient(0,  #010118, #040437, #010118);">
     <div class="container">
         <div class="row">
-            <a href="index.php" class="logo1 mt-3">SlideIt</a>
+            <div class="col-sm-6">
+                <a href="index.php" class="logo1 mt-3">SlideIt</a>
+            </div>
+            <div class="col-sm-6 d-flex flex-row-reverse">
+                <a href="sair.php" class="btn btn-lg btn-outline-danger mt-3" style="    height: 60%;"
+                    id="nome5">Sair</a>
+            </div>
         </div>
         <div class="row mt-5">
             <div class="col-md-2 col-lg-6 rounded-1 border border-primary mb-5">
@@ -150,9 +165,9 @@ while ($linha = mysqli_fetch_array($res)){
                         </div>
                     </div>
                 </div>
-            
-            <?php }} ?>
-        </div>
+
+                <?php }} ?>
+            </div>
         </div>
     </div>
     </div>

@@ -8,13 +8,18 @@
         header('location: login.php');
     }
     $logado = $_SESSION['email'];
-
     include_once('conexao.php');    
 
-    $sql = "SELECT * FROM cadastro WHERE email = '$logado'";
+    $sql13 = "SELECT * FROM cadastro WHERE email = '$logado' and user = '1'";
+    $result13 = $conn->query($sql13);
+    if(mysqli_num_rows($result13) < 1){
+        unset($_SESSION['email']);
+        unset($_SESSION['senha']);
+        header('location: login.php');
+    }
 
+    $sql = "SELECT * FROM cadastro WHERE email = '$logado'";
     $resultado = mysqli_query($conn, $sql) or die("Erro ao retornar dados");
-    
     $registro = mysqli_fetch_array($resultado)
 
 
@@ -45,7 +50,12 @@
 <body style=" background: linear-gradient(0,  #010118, #040437, #010118);">
     <div class="container">
         <div class="row">
-            <a href="index.php" class="logo1 mt-3">SlideIt</a>
+            <div class="col-sm-6">
+                <a href="index.php" class="logo1 mt-3">SlideIt</a>
+            </div>
+            <div class="col-sm-6 d-flex flex-row-reverse" >
+                <a href="sair.php" class="btn btn-lg btn-outline-danger mt-3" style="    height: 60%;" id="nome5">Sair</a>
+            </div>
         </div>
         <div class="row mt-5  align-items-center">
             <!---------------------------------------------------------------------------------------------------------------------------------------------->
@@ -140,9 +150,9 @@
 
                     <div class="row boder rounded-1 border border-primary mb-2 ">
 
-                    <h4 class="mx-auto col-sm-12" style="color: white;">
-                     <?php echo $linha['materia']; ?>
-                    </h4>
+                        <h4 class="mx-auto col-sm-12" style="color: white;">
+                            <?php echo $linha['materia']; ?>
+                        </h4>
 
 
                         <a class="btn btn-primary col-sm-11 mx-auto mt-2 mb-2" data-bs-toggle="collapse"
@@ -153,12 +163,12 @@
 
                         <div class="collapse" id="<?php echo $linha['id_postagem']; ?>">
                             <div class="card card-body">
-                                
-            <p> <?php  echo $linha['descricao']; ?> </p>
-           
-            <p > <?php echo $linha['datapost']; ?> 
 
-            <?php
+                                <p> <?php  echo $linha['descricao']; ?> </p>
+
+                                <p> <?php echo $linha['datapost']; ?>
+
+                                    <?php
             if($linha['id_cadastroDev'] == null){
                $cor = "orange";
                $text ="aguardando";
@@ -173,8 +183,9 @@
                $text = "aceito";
              } ?>
 
-                                <a style="background-color: #ffffff00; color:<?php echo $cor; ?>;"><?php echo $text; ?>
-            </a></p>
+                                    <a style="background-color: #ffffff00; color:<?php echo $cor; ?>;"><?php echo $text; ?>
+                                    </a>
+                                </p>
 
                             </div>
 
@@ -204,7 +215,7 @@
             </div>
         </div>
     </div>
-    
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
